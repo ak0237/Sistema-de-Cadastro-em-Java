@@ -49,6 +49,9 @@ public class TelaSistema extends JFrame implements ActionListener{
         if(e.getSource() == jmiEstado){
             TelaCadastroEstado telaCadastroEstado = new TelaCadastroEstado();
             jdp.add(telaCadastroEstado);
-        } 
+        } else if(e.getSource() == jmiCidade){
+            TelaCadastroCidade telaCadastroCidade = new TelaCadastroCidade();
+            jdp.add(telaCadastroCidade);
+        }
     }
 }
