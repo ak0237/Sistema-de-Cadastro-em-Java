@@ -2,16 +2,20 @@
 package tela;
 
 import java.awt.BorderLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 
 
 public class TelaCadastro extends JInternalFrame implements ActionListener{
     public JPanel jpBotoes = new JPanel();
+    public JPanel jpComponentes = new JPanel();
     public JButton jbIncluir = new JButton("Incluir");
     public JButton jbAlterar = new JButton("Alterar");
     public JButton jbExcluir = new JButton("Excluir");
@@ -28,9 +32,11 @@ public class TelaCadastro extends JInternalFrame implements ActionListener{
     public boolean temDadosNaTela = false;
     
     
-    public TelaCadastro(){
-        super("Cadastro de Estado", true, true, true, true);
+    public TelaCadastro(String titulo){
+        super(titulo, true, true, true, true);
         getContentPane().add(BorderLayout.PAGE_END, jpBotoes);
+        getContentPane().add(BorderLayout.CENTER, jpComponentes);
+        jpComponentes.setLayout(new GridBagLayout());
         jpBotoes.setLayout(new GridLayout(1, 6));
         jpBotoes.add(jbIncluir);
         jpBotoes.add(jbAlterar);
@@ -50,6 +56,17 @@ public class TelaCadastro extends JInternalFrame implements ActionListener{
         pack();
         setVisible(true);
         habilitaBotoes();
+    }
+    
+    public void adicionaComponente(int linha, int coluna, int linhas, int colunas, JComponent componente){
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridy = linha;
+        gbc.gridx = coluna;
+        gbc.gridheight = linhas;
+        gbc.gridwidth = colunas;
+        
+        gbc.anchor = GridBagConstraints.WEST;
+        jpComponentes.add(componente, gbc);
     }
     
     public void habilitaBotoes(){
