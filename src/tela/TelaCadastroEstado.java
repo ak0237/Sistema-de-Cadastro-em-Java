@@ -1,8 +1,8 @@
 
 package tela;
 
+import componente.MeuCampoTexto;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 public class TelaCadastroEstado extends TelaCadastro{
     public JLabel jlCodigo = new JLabel("Código");
@@ -10,10 +10,10 @@ public class TelaCadastroEstado extends TelaCadastro{
     public JLabel jlSigla = new JLabel("Sigla");
     public JLabel jlAtivo = new JLabel("Ativo");
     
-    public JTextField jtfCodigo = new JTextField(10);
-    public JTextField jtfNome = new JTextField(50);
-    public JTextField jtfSigla = new JTextField(2);
-    public JTextField jtfAtivo = new JTextField(1);
+    public MeuCampoTexto jtfCodigo = new MeuCampoTexto(10);
+    public MeuCampoTexto jtfNome = new MeuCampoTexto(50);
+    public MeuCampoTexto jtfSigla = new MeuCampoTexto(2);
+    public MeuCampoTexto jtfAtivo = new MeuCampoTexto(1);
     
     public TelaCadastroEstado(){
         super("Cadastro de Estado");
