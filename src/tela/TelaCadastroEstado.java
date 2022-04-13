@@ -2,9 +2,13 @@
 package tela;
 
 import componente.MeuCampoTexto;
+import dao.EstadoDao;
 import javax.swing.JLabel;
+import pojo.Estado;
 
 public class TelaCadastroEstado extends TelaCadastro{
+    public Estado estado = new Estado();
+    public EstadoDao estadoDao = new EstadoDao(estado);
     public JLabel jlCodigo = new JLabel("Código");
     public JLabel jlNome = new JLabel("Nome");
     public JLabel jlSigla = new JLabel("Sigla");
@@ -27,5 +31,14 @@ public class TelaCadastroEstado extends TelaCadastro{
         adicionaComponente(4,2,1,1,jtfAtivo);
         pack();
         habilitaComponentes(false);
+    }
+    
+    @Override
+    public void incluirBD(){
+        estado.setId(Integer.parseInt(jtfCodigo.getText()));
+        estado.setNome(jtfNome.getText());
+        estado.setSigla(jtfSigla.getText());
+        estado.setAtivo(jtfAtivo.getText());
+        estadoDao.inserir();
     }
 }

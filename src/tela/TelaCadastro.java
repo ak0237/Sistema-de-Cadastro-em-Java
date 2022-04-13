@@ -83,7 +83,7 @@ public class TelaCadastro extends JInternalFrame implements ActionListener{
         }
     }
     
-    public void limpaComponentes(boolean status){
+    public void limpaComponentes(){
         for(MeuComponente componente : componentes){
             componente.limpar();
         }
@@ -118,6 +118,8 @@ public class TelaCadastro extends JInternalFrame implements ActionListener{
     
     public void incluir(){
         estadoTela = INCLUINDO;
+        limpaComponentes();
+        habilitaComponentes(true);
     }
     public void alterar (){
         estadoTela = ALTERANDO;
@@ -129,9 +131,17 @@ public class TelaCadastro extends JInternalFrame implements ActionListener{
         estadoTela = CONSULTANDO;
     }
     public void confirmar(){
+        if(estadoTela == INCLUINDO){
+            incluirBD();
+        }
         estadoTela = PADRAO;
+        habilitaBotoes();
     }
     public void cancelar(){
         estadoTela = PADRAO;
+    }
+    
+    public void incluirBD(){
+        
     }
 }
