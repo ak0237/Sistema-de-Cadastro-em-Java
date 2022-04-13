@@ -26,5 +26,6 @@ public class TelaCadastroEstado extends TelaCadastro{
         adicionaComponente(4,1,1,1,jlAtivo);
         adicionaComponente(4,2,1,1,jtfAtivo);
         pack();
+        habilitaComponentes(false);
     }
 }

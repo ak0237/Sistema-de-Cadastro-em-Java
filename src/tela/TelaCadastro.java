@@ -1,12 +1,15 @@
 
 package tela;
 
+import componente.MeuComponente;
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JInternalFrame;
@@ -14,6 +17,7 @@ import javax.swing.JPanel;
 
 
 public class TelaCadastro extends JInternalFrame implements ActionListener{
+    public List<MeuComponente> componentes = new ArrayList();
     public JPanel jpBotoes = new JPanel();
     public JPanel jpComponentes = new JPanel();
     public JButton jbIncluir = new JButton("Incluir");
@@ -67,6 +71,16 @@ public class TelaCadastro extends JInternalFrame implements ActionListener{
         
         gbc.anchor = GridBagConstraints.WEST;
         jpComponentes.add(componente, gbc);
+        
+        if(componente instanceof MeuComponente){
+            componentes.add((MeuComponente)componente);
+        }
+    }
+    
+    public void habilitaComponentes(boolean status){
+        for (int i = 0; i < componentes.size(); i++){
+            componentes.get(i).habilitar(status);
+        }
     }
     
     public void habilitaBotoes(){
