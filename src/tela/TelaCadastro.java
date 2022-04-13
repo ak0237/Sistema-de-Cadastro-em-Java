@@ -83,6 +83,12 @@ public class TelaCadastro extends JInternalFrame implements ActionListener{
         }
     }
     
+    public void limpaComponentes(boolean status){
+        for(MeuComponente componente : componentes){
+            componente.limpar();
+        }
+    }
+    
     public void habilitaBotoes(){
         jbIncluir.setEnabled(estadoTela==PADRAO);
         jbAlterar.setEnabled(estadoTela==PADRAO && temDadosNaTela);
