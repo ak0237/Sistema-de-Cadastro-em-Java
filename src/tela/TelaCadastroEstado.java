@@ -64,18 +64,37 @@ public class TelaCadastroEstado extends JInternalFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == jbIncluir){
-            estadoTela = INCLUINDO;
+            incluir();
         }else if(e.getSource() == jbAlterar){
-            estadoTela = ALTERANDO;
+            alterar();
         }else if(e.getSource() == jbExcluir){
-            estadoTela = EXCLUINDO;
+            excluir();
         }else if(e.getSource() == jbConsultar){
-            estadoTela = CONSULTANDO;
+            consultar();
         }else if(e.getSource() == jbConfirmar){
-            estadoTela = PADRAO;
+            confirmar();
         }else if(e.getSource() == jbCancelar){
-            estadoTela = PADRAO;
+            cancelar();
         }
         habilitaBotoes();
+    }
+    
+    public void incluir(){
+        estadoTela = INCLUINDO;
+    }
+    public void alterar (){
+        estadoTela = ALTERANDO;
+    }
+    public void excluir(){
+        estadoTela = EXCLUINDO;
+    }
+    public void consultar(){
+        estadoTela = CONSULTANDO;
+    }
+    public void confirmar(){
+        estadoTela = PADRAO;
+    }
+    public void cancelar(){
+        estadoTela = PADRAO;
     }
 }
